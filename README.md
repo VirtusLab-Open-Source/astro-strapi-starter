@@ -1,8 +1,9 @@
 <div align="center" style="max-width: 10rem; margin: 0 auto">
   <img style="width: 150px; height: auto;" src="https://www.sensinum.com/img/open-source/strapi-astro-blocks/logo.png" alt="Logo - Strapi Astro Loader" />
 </div>
-<div align="center">
+<div align="center" style="margin-bottom: 2rem">
   <h1>Astro x Strapi Starter</h1>
+  <a href="https://stackblitz.com/github/VirtusLab-Open-Source/tree/main"><img src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" /></a>
 </div>
 
 All-in-one starter combining Astro, Strapi CMS, and TailwindCSS with support for **[Strapi Astro Loader](https://github.com/VirtusLab-Open-Source/astro-strapi-loader)** and **[Strapi Astro Blocks Field](https://github.com/VirtusLab-Open-Source/astro-strapi-blocks)**.
