@@ -25,10 +25,10 @@ All-in-one starter combining Astro, Strapi CMS, and TailwindCSS with support for
 
 ```bash
 # NPM
-npm create astro@latest -- --template @VirtusLab-Open-Source/astro-strapi-starter
+npm create astro@latest -- --template VirtusLab-Open-Source/astro-strapi-starter
 
 # Yarn
-yarn create astro --template @VirtusLab-Open-Source/astro-strapi-starter
+yarn create astro --template VirtusLab-Open-Source/astro-strapi-starter
 ```
 
 ### 2. Environment Variables Setup
