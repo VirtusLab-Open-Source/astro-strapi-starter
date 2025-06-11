@@ -3,7 +3,7 @@
 </div>
 <div align="center" style="margin-bottom: 2rem">
   <h1>Astro x Strapi Starter</h1>
-  <a href="https://stackblitz.com/github/VirtusLab-Open-Source/tree/main"><img src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" /></a>
+  <a href="https://stackblitz.com/~/github.com/VirtusLab-Open-Source/astro-strapi-starter"><img src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" /></a>
 </div>
 
 All-in-one starter combining Astro, Strapi CMS, and TailwindCSS with support for **[Strapi Astro Loader](https://github.com/VirtusLab-Open-Source/astro-strapi-loader)** and **[Strapi Astro Blocks Field](https://github.com/VirtusLab-Open-Source/astro-strapi-blocks)**.

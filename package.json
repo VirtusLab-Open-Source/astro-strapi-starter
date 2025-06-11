@@ -13,8 +13,6 @@
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/mdx": "^4.3.0",
-    "@astrojs/react": "4.3.0",
-    "@astrojs/tailwind": "6.0.2",
     "@sensinum/astro-strapi-blocks": "1.2.2",
     "@sensinum/astro-strapi-loader": "^1.0.7",
     "@tailwindcss/vite": "^4.1.3",
