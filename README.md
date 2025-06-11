@@ -20,6 +20,11 @@ All-in-one starter combining Astro, Strapi CMS, and TailwindCSS with support for
 - 📱 **Responsive Design** - Optimized for all devices
 - 🌐 **TypeScript** - Full type support
 
+
+![image](/public/preview.png)
+
+---
+
 ## 🚀 Quick Start
 
 ### 1. Use a starter template
