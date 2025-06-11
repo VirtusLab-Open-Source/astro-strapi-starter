@@ -1,0 +1,221 @@
+---
+import { getCollection } from "astro:content";
+import BlockRenderer from "../components/blocks/BlockRenderer.astro";
+import "../styles/global.css";
+
+import type {
+	StrapiHomepage,
+	StrapiGlobal,
+	StrapiContentHeroComponent,
+} from "../types/strapi";
+
+// Helper function to preprocess single type
+function preprocessSingleType(collection: any[]) {
+	return collection[0]?.data || null;
+}
+
+let homepage: StrapiHomepage | null = null;
+let global: StrapiGlobal | null = null;
+
+try {
+	homepage = await getCollection("homepage").then(preprocessSingleType);
+	global = await getCollection("global").then(preprocessSingleType);
+} catch (error) {
+	console.error("Error loading Strapi content:", error);
+}
+
+// Fallback data if Strapi is not available
+if (!homepage) {
+	homepage = {
+		id: 1,
+		documentId: "homepage",
+		title: "Astro x Strapi Starter",
+		hero: {
+			__component: "blocks.hero",
+			id: 0,
+			title: "Welcome to Astro x Strapi Starter!",
+			subtitle:
+				"All-in-one starter combining Astro, Strapi CMS, and TailwindCSS",
+			content: [
+				{
+					type: "paragraph",
+					children: [
+						{
+							text: "This starter brings together the finest features of Astro, Strapi, and TailwindCSS, delivering exceptional performance, content management, styling capabilities, and flexibility.",
+							type: "text",
+						},
+					],
+				},
+			],
+			cta: {
+				label: "Get Started",
+				url: "#features",
+			},
+		},
+		sections: [
+			{
+				__component: "blocks.text",
+				id: 1,
+				title: "Features",
+				content: [
+					{
+						type: "paragraph",
+						children: [
+							{
+								text: "🚀 Lightning fast loading with Astro",
+								type: "text",
+							},
+						],
+					},
+					{
+						type: "paragraph",
+						children: [
+							{
+								text: "📝 Easy content management with Strapi CMS (Loader + Blocks)",
+								type: "text",
+							},
+						],
+					},
+					{
+						type: "paragraph",
+						children: [
+							{
+								text: "🎨 Beautiful styling with TailwindCSS",
+								type: "text",
+							},
+						],
+					},
+				],
+			},
+		],
+		examples: [
+			{
+				__component: "blocks.quote",
+				id: 1,
+				quote: "Astro x Strapi is the perfect combination for building your next website.",
+				author: "Astro Strapi Starter",
+			},
+			{
+				__component: "blocks.cta",
+				id: 2,
+				title: "Read more about Astro Strapi Loader",
+				classes: "bg-gradient-to-r from-brand-800 to-brand-400 rounded-lg p-8 my-8 text-white",
+				shields: [
+					{
+						label: "NPM Version",
+						url: "https://img.shields.io/npm/v/%40sensinum%2Fastro-strapi-loader"
+					},
+					{
+						label: "NPM Downloads",
+						url: "https://img.shields.io/npm/dm/%40sensinum%2Fastro-strapi-loader"
+					},
+				],
+				description:
+					"Astro Strapi Loader is a powerful integration that allows you to load content from Strapi into your Astro project.",
+				cta: {
+					label: "Documentation",
+					color: "text-accent-500",
+					url: "https://github.com/VirtusLab-Open-Source/astro-strapi-loader",
+				}
+				,
+			},
+			{
+				__component: "blocks.cta",
+				id: 2,
+				title: "Read more about Astro Strapi Blocks Field",
+				classes: "bg-gradient-to-r from-accent-500 to-accent-600 rounded-lg p-8 my-8 text-white",
+				shields: [
+					{
+						label: "NPM Version",
+						url: "https://img.shields.io/npm/v/%40sensinum%2Fastro-strapi-blocks"
+					},
+					{
+						label: "NPM Downloads",
+						url: "https://img.shields.io/npm/dm/%40sensinum%2Fastro-strapi-blocks"
+					},
+				],
+				description:
+					"Astro Strapi Blocks Field is a powerful utility that allows you to render Strapi blocks in your Astro project. It's a great way to get started with Strapi and Astro.",
+				cta: {
+					label: "Documentation",
+					color: "text-accent-600",
+					url: "https://github.com/VirtusLab-Open-Source/astro-strapi-blocks",
+				}
+				,
+			},
+			{
+				__component: "blocks.cta",
+				id: 2,
+				title: "Ready to start?",
+				classes: "bg-gradient-to-l from-gray-500 to-gray-300 rounded-lg p-8 my-8 text-white",
+				description:
+					"Begin building your website with this all-in-one starter.",
+				cta: {
+					label: "Documentation",
+					color: "text-accent-600",
+					url: "https://docs.astro.build",
+				}
+				,
+			},
+		],
+		publishedAt: new Date().toISOString(),
+		updatedAt: new Date().toISOString(),
+	};
+}
+
+const pageTitle = homepage?.title || "Astro + Strapi Starter";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{pageTitle}</title>
+		<meta
+			name="description"
+			content="Starter combining Astro, Strapi CMS, and TailwindCSS"
+		/>
+	</head>
+
+	<body class="bg-white text-gray-900">
+		<main>
+			{
+				homepage?.hero && (
+					<BlockRenderer
+						data={homepage.hero as StrapiContentHeroComponent}
+					/>
+				)
+			}
+
+			<div class="max-w-4xl mx-auto px-4 py-16">
+				{
+					homepage?.sections?.map((section) => (
+						<BlockRenderer data={section} />
+					))
+				}
+
+				{/* Demo section with different blocks */}
+				<section id="demo-blocks" class="mt-16">
+					<h2 class="text-4xl font-thin text-center mb-12">
+						Example Blocks
+					</h2>
+
+					{
+						homepage?.examples?.map((example) => (
+							<BlockRenderer data={example} />
+						))
+					}
+				</section>
+			</div>
+		</main>
+		<footer class="bg-gray-50 text-gray-500 border-t border-gray-200 py-8">
+			<div class="max-w-4xl mx-auto px-4 text-sm">
+				<p class="text-center">
+					Built with ❤️ by <a href="https://www.sensinum.com" class="text-accent-500 hover:text-accent-600">Sensinum</a> a brand of <a href="https://www.virtuslab.com" class="text-brand-500 hover:text-brand-600">VirtusLab</a>
+				</p>
+			</div>
+		</footer>
+	</body>
+</html>

@@ -1,0 +1,67 @@
+---
+import { Image } from "astro:assets";
+import { StrapiBlocks } from "@sensinum/astro-strapi-blocks";
+
+import type { StrapiBlockField, StrapiContentHeroComponent } from "../../types/strapi";
+import { buildMediaUrl } from "../../utils";
+
+type Props = {
+    data: StrapiContentHeroComponent['hero'];
+};
+
+const { data } = Astro.props;
+---
+
+<div class="relative bg-gray-200 text-gray-900 py-20 lg:py-32">
+    {
+        data.background && (
+            <div class="absolute inset-0 z-0">
+                <Image
+                    src={buildMediaUrl(data.background.url)}
+                    alt={data.background.alternativeText || ""}
+                    class="w-full h-full object-cover opacity-50"
+                />
+                <div class="absolute inset-0 bg-gray-200 opacity-50" />
+            </div>
+        )
+    }
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+            <Image
+                src="https://www.sensinum.com/img/open-source/strapi-astro-blocks/logo.png"
+                alt="Astro x Strapi Integrations by Sensinum"
+                width={180}
+                height={180}
+                class="mx-auto mb-6"
+            />
+
+            <h1 class="text-4xl lg:text-7xl font-thin mb-6 text-accent-500">
+                {data.title}
+            </h1>
+            {
+                data.subtitle && (
+                    <p class="text-xl lg:text-2xl mb-8 max-w-3xl mx-auto opacity-90 font-light">
+                        {data.subtitle}
+                    </p>
+                )
+            }
+            {
+                data.content && (
+                    <StrapiBlocks class="text-lg mb-8 max-w-2xl mx-auto text-gray-500" data={data.content as StrapiBlockField} />
+                )
+            }
+            {
+                data.cta && (
+                    <a
+                        href={data.cta.url}
+                        class="inline-block bg-brand-600 hover:bg-brand-700 text-white font-semibold py-4 px-8 rounded-lg transition-colors duration-300 shadow-lg text-lg"
+                    >
+                        {data.cta.label}
+                    </a>
+                )
+            }
+        </div>
+    </div>
+</div>
+

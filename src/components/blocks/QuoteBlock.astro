@@ -1,0 +1,20 @@
+---
+import type { StrapiContentQuoteComponent } from '../../types/strapi';
+
+type Props = {
+    data: StrapiContentQuoteComponent;
+};
+
+const { data } = Astro.props;
+---
+
+<blockquote class="bg-gray-50 border-l-4 border-accent-200 p-6 my-8">
+    <p class="text-xl lg:text-2xl text-gray-800 italic leading-relaxed mb-4">
+        "{data.quote}"
+    </p>
+    {data.author && (
+        <footer class="text-gray-600 font-medium">
+            — {data.author}
+        </footer>
+    )}
+</blockquote> 

@@ -1,0 +1,28 @@
+---
+import TextBlock from './TextBlock.astro';
+import QuoteBlock from './QuoteBlock.astro';
+import MediaBlock from './MediaBlock.astro';
+import CTABlock from './CTABlock.astro';
+import HeroBlock from './HeroBlock.astro';
+
+import type { 
+    StrapiContentComponents,
+    StrapiContentTextComponent,
+    StrapiContentQuoteComponent,
+    StrapiContentMediaComponent,
+    StrapiContentCTAComponent,
+    StrapiContentHeroComponent
+} from '../../types/strapi';
+
+type Props = {
+    data: StrapiContentComponents;
+};
+
+const { data } = Astro.props;
+---
+
+{data.__component === 'blocks.text' && <TextBlock data={data as StrapiContentTextComponent} />}
+{data.__component === 'blocks.quote' && <QuoteBlock data={data as StrapiContentQuoteComponent} />}
+{data.__component === 'blocks.media' && <MediaBlock data={data as StrapiContentMediaComponent} />}
+{data.__component === 'blocks.cta' && <CTABlock data={data as StrapiContentCTAComponent} />}
+{data.__component === 'blocks.hero' && <HeroBlock data={data as StrapiContentHeroComponent} />} 

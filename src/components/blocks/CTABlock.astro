@@ -1,0 +1,53 @@
+---
+import type { StrapiContentCTAComponent } from "../../types/strapi";
+
+type Props = {
+    data: StrapiContentCTAComponent;
+};
+
+const { data } = Astro.props;
+const {
+    classes = "bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg p-8 my-8 text-white",
+} = data;
+---
+
+<div class={classes}>
+    <div class="text-center">
+        {
+            data.title && (
+                <h3 class="text-2xl lg:text-4xl font-thin mb-4">
+                    {data.title}
+                </h3>
+            )
+        }
+        {
+            data.shields && (
+                <div class="flex justify-center p-2 mb-2">
+                    <div class="flex justify-center gap-2 rounded-md overflow-hidden bg-gray-100 p-2 shadow-md">
+                        {data.shields.map((shield) => (
+                            <img src={shield.url} alt={shield.label} />
+                        ))}
+                    </div>
+                </div>
+            )
+        }
+        {
+            data.description && (
+                <p class="text-lg lg:text-xl mb-6 font-medium">
+                    {data.description}
+                </p>
+            )
+        }
+        {
+            data.cta && (
+                <a
+                    href={data.cta.url}
+                    class={`inline-block bg-white ${data.cta.color || "text-accent-600"} font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg`}
+                >
+                    {data.cta.label}
+                </a>
+            )
+        }
+    </div>
+</div>
+

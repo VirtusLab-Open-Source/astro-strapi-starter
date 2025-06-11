@@ -1,0 +1,20 @@
+---
+import { StrapiBlocks } from '@sensinum/astro-strapi-blocks';
+
+import type { StrapiContentTextComponent } from '../../types/strapi';
+
+type Props = {
+    data: StrapiContentTextComponent;
+};
+
+const { data } = Astro.props;
+---
+
+<div class="prose prose-lg max-w-none">
+    {data.title && (
+        <h2 class="text-3xl lg:text-4xl font-thin text-gray-900 mb-6">
+            {data.title}
+        </h2>
+    )}
+    {data.content && (<StrapiBlocks data={data.content} /> )}
+</div> 
