@@ -255,6 +255,6 @@ Please make sure to:
 
 ## 📄 License
 
-Copyright © [Sensinum](https://sensinum.com) & [VirtusLab](https://virtuslab.com)
+Copyright © [Sensinum](https://sensinum.com)
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
