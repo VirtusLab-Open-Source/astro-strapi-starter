@@ -12,9 +12,13 @@ const { data } = Astro.props;
 
 <div class="prose prose-lg max-w-none">
     {data.title && (
-        <h2 class="text-3xl lg:text-3xl font-light uppercase tracking-wider text-gray-900 mb-6">
+        <h2 class="text-2xl lg:text-3xl font-bold text-foreground mb-6">
             {data.title}
         </h2>
     )}
-    {data.content && (<StrapiBlocks data={data.content} /> )}
-</div> 
+    {data.content && (
+        <div class="text-muted-foreground leading-relaxed [&_p]:mb-4 [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-4 [&_a:hover]:text-primary/80">
+            <StrapiBlocks data={data.content} />
+        </div>
+    )}
+</div>

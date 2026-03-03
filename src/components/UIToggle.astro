@@ -1,0 +1,46 @@
+---
+---
+
+<div id="ui-toggle" class="inline-flex rounded-lg border border-border bg-muted p-0.5 text-sm">
+  <button
+    data-ui-select="tailwind"
+    class="rounded-md px-3 py-1.5 font-medium transition-colors text-muted-foreground data-[active]:bg-background data-[active]:text-foreground data-[active]:shadow-sm"
+  >
+    Tailwind
+  </button>
+  <button
+    data-ui-select="shadcn"
+    class="rounded-md px-3 py-1.5 font-medium transition-colors text-muted-foreground data-[active]:bg-background data-[active]:text-foreground data-[active]:shadow-sm"
+  >
+    shadcn/ui
+  </button>
+</div>
+
+<script>
+  function initUIToggle() {
+    const html = document.documentElement;
+    const buttons = document.querySelectorAll("[data-ui-select]");
+
+    const current = html.getAttribute("data-ui") || "tailwind";
+    buttons.forEach((btn) => {
+      if (btn.getAttribute("data-ui-select") === current) {
+        btn.setAttribute("data-active", "");
+      } else {
+        btn.removeAttribute("data-active");
+      }
+    });
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const mode = btn.getAttribute("data-ui-select")!;
+        html.setAttribute("data-ui", mode);
+        localStorage.setItem("ui-mode", mode);
+        buttons.forEach((b) => b.removeAttribute("data-active"));
+        btn.setAttribute("data-active", "");
+      });
+    });
+  }
+
+  initUIToggle();
+  document.addEventListener("astro:after-swap", initUIToggle);
+</script>

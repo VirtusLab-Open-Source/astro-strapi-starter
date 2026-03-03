@@ -1,0 +1,76 @@
+---
+import Button from "../tailwind/Button.astro";
+import Badge from "../tailwind/Badge.astro";
+import Card from "../tailwind/Card.astro";
+import CardHeader from "../tailwind/CardHeader.astro";
+import CardTitle from "../tailwind/CardTitle.astro";
+import CardDescription from "../tailwind/CardDescription.astro";
+import CardContent from "../tailwind/CardContent.astro";
+---
+
+<div data-showcase="tailwind" class="space-y-10">
+  <div class="rounded-lg border border-dashed border-primary/30 bg-primary/5 px-3 py-1.5 text-xs font-medium text-primary inline-flex items-center gap-1.5">
+    <svg class="size-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+    Pure Astro + Tailwind CSS — zero JavaScript, server-rendered
+  </div>
+
+  <!-- Buttons -->
+  <section>
+    <h3 class="text-lg font-semibold mb-4">Buttons</h3>
+    <div class="flex flex-wrap gap-3">
+      <Button>Default</Button>
+      <Button variant="secondary">Secondary</Button>
+      <Button variant="outline">Outline</Button>
+      <Button variant="ghost">Ghost</Button>
+      <Button variant="destructive">Destructive</Button>
+      <Button variant="link">Link</Button>
+    </div>
+    <div class="flex flex-wrap gap-3 mt-3">
+      <Button size="sm">Small</Button>
+      <Button size="default">Default</Button>
+      <Button size="lg">Large</Button>
+    </div>
+  </section>
+
+  <!-- Badges -->
+  <section>
+    <h3 class="text-lg font-semibold mb-4">Badges</h3>
+    <div class="flex flex-wrap gap-2">
+      <Badge>Default</Badge>
+      <Badge variant="secondary">Secondary</Badge>
+      <Badge variant="outline">Outline</Badge>
+      <Badge variant="destructive">Destructive</Badge>
+    </div>
+  </section>
+
+  <!-- Card -->
+  <section>
+    <h3 class="text-lg font-semibold mb-4">Card</h3>
+    <div class="grid gap-4 sm:grid-cols-2">
+      <Card>
+        <CardHeader>
+          <CardTitle>Astro Component</CardTitle>
+          <CardDescription>Built with .astro files and Tailwind utility classes</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p class="text-sm text-muted-foreground">
+            Server-rendered with zero client-side JavaScript.
+            Maximum performance for content-driven pages.
+          </p>
+        </CardContent>
+      </Card>
+      <Card>
+        <CardHeader>
+          <CardTitle>Zero Bundle Cost</CardTitle>
+          <CardDescription>No React runtime, no hydration overhead</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p class="text-sm text-muted-foreground">
+            Ideal for static content, landing pages, and
+            SEO-focused websites.
+          </p>
+        </CardContent>
+      </Card>
+    </div>
+  </section>
+</div>

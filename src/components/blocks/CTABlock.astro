@@ -7,7 +7,7 @@ type Props = {
 
 const { data } = Astro.props;
 const {
-    classes = "bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg p-8 my-8 text-white",
+    classes = "rounded-xl border border-border bg-muted/50 p-8 my-8 text-foreground",
 } = data;
 ---
 
@@ -15,15 +15,15 @@ const {
     <div class="text-center">
         {
             data.title && (
-                <h3 class="text-2xl lg:text-3xl font-light uppercase tracking-wider mb-4">
+                <h3 class="text-2xl lg:text-3xl font-bold mb-4">
                     {data.title}
                 </h3>
             )
         }
         {
             data.shields && (
-                <div class="flex justify-center p-2 mb-2">
-                    <div class="flex justify-center gap-2 rounded-md overflow-hidden bg-gray-100 p-2 shadow-md">
+                <div class="flex justify-center p-2 mb-3">
+                    <div class="flex justify-center gap-2 rounded-lg overflow-hidden bg-background/80 dark:bg-background/40 p-2 shadow-sm border border-border/50">
                         {data.shields.map((shield) => (
                             <img src={shield.url} alt={shield.label} />
                         ))}
@@ -33,7 +33,7 @@ const {
         }
         {
             data.description && (
-                <p class="text-lg lg:text-xl mb-6 font-medium">
+                <p class="text-lg lg:text-xl mb-6 text-muted-foreground">
                     {data.description}
                 </p>
             )
@@ -42,7 +42,7 @@ const {
             data.cta && (
                 <a
                     href={data.cta.url}
-                    class={`inline-block bg-white ${data.cta.color || "text-accent-600"} font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg`}
+                    class="inline-block bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 px-8 rounded-lg transition-colors shadow-sm"
                 >
                     {data.cta.label}
                 </a>
@@ -50,4 +50,3 @@ const {
         }
     </div>
 </div>
-

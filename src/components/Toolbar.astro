@@ -1,0 +1,23 @@
+---
+import ThemeToggle from "./ThemeToggle.astro";
+import UIToggle from "./UIToggle.astro";
+---
+
+<header class="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
+  <div class="mx-auto flex max-w-4xl items-center justify-between px-4 h-14">
+    <div class="flex items-center gap-3">
+      <a href="https://sensinum.com" class="flex items-center hover:opacity-80 transition-opacity" aria-label="Sensinum">
+        <img src="/sensinum-logo.svg" alt="Sensinum" class="h-5 w-auto" />
+      </a>
+      <div class="h-5 w-px bg-border" />
+      <a href="/" class="text-lg font-bold text-violet-400 hover:text-violet-300 transition-colors">
+        Astro × Strapi
+      </a>
+    </div>
+    <div class="flex items-center gap-4">
+      <UIToggle />
+      <div class="h-5 w-px bg-border" />
+      <ThemeToggle />
+    </div>
+  </div>
+</header>
