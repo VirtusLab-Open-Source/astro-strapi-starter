@@ -13,6 +13,7 @@ const isResponsive = variant === "responsive";
 <div class="ui-toggle inline-flex rounded-lg border border-border bg-muted p-0.5 text-sm">
   <button
     data-ui-select="tailwind"
+    aria-label="Switch to Tailwind CSS"
     class="rounded-md px-3 py-1.5 font-medium transition-colors text-muted-foreground data-[active]:bg-background data-[active]:text-foreground data-[active]:shadow-sm flex items-center gap-1.5"
   >
     {isResponsive ? (
@@ -26,6 +27,7 @@ const isResponsive = variant === "responsive";
   </button>
   <button
     data-ui-select="shadcn"
+    aria-label="Switch to shadcn/ui"
     class="rounded-md px-3 py-1.5 font-medium transition-colors text-muted-foreground data-[active]:bg-background data-[active]:text-foreground data-[active]:shadow-sm flex items-center gap-1.5"
   >
     {isResponsive ? (
