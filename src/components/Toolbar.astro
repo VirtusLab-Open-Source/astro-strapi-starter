@@ -1,6 +1,8 @@
 ---
 import ThemeToggle from "./ThemeToggle.astro";
 import UIToggle from "./UIToggle.astro";
+import AstroLogo from "./icons/AstroLogo.astro";
+import StrapiLogo from "./icons/StrapiLogo.astro";
 ---
 
 <header class="sticky top-0 z-50 glass border-b-0">
@@ -12,13 +14,13 @@ import UIToggle from "./UIToggle.astro";
       </a>
       <div class="h-5 w-px bg-foreground/10" />
       <a href="/" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
-        <img src="/logos/astro.svg" alt="Astro" class="h-5 w-auto dark:invert" />
+        <AstroLogo class="h-5 w-auto text-foreground" />
         <svg class="size-3 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-        <img src="/logos/strapi.svg" alt="Strapi" class="h-5 w-auto" />
+        <StrapiLogo class="h-5 w-auto" />
       </a>
     </div>
     <div class="flex items-center gap-4">
-      <UIToggle />
+      <UIToggle variant="responsive" />
       <div class="h-5 w-px bg-foreground/10" />
       <ThemeToggle />
     </div>

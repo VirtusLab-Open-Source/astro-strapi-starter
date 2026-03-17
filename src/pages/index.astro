@@ -4,6 +4,7 @@ import BlockRenderer from "../components/blocks/BlockRenderer.astro";
 import Toolbar from "../components/Toolbar.astro";
 import TailwindShowcase from "../components/showcase/TailwindShowcase.astro";
 import { ShadcnShowcase } from "../components/showcase/ShadcnShowcase";
+import UIToggle from "../components/UIToggle.astro";
 import "../styles/global.css";
 
 import type {
@@ -32,15 +33,15 @@ if (!homepage) {
 		hero: {
 			__component: "blocks.hero",
 			id: 0,
-			title: "Build faster with Astro & Strapi",
+			title: "Performance that leaders trust",
 			subtitle:
-				"A production-ready starter with Astro 6, Strapi CMS, Tailwind CSS 4, and shadcn/ui — dark mode included.",
+				"The Astro 6 & Strapi starter chosen by teams who set the pace — not follow it.",
 			content: [
 				{
 					type: "paragraph",
 					children: [
 						{
-							text: "Content-driven sites with exceptional performance. Load content from Strapi, render rich blocks, style with Tailwind or shadcn/ui — everything wired up and ready to ship.",
+							text: "Zero-JS by default. Near-perfect Lighthouse scores out of the box. Trusted by trendsetters who demand speed, scalability, and elegance — from startups to enterprise. Tailwind CSS 4, shadcn/ui, dark mode, and everything wired up to ship today.",
 							type: "text",
 						},
 					],
@@ -334,14 +335,7 @@ const pageTitle = homepage?.title || "Astro × Strapi Starter | Always Free, Alw
 						Switch between <strong class="text-foreground">pure Tailwind</strong> and <strong class="text-foreground">shadcn/ui</strong> to preview both implementations.
 					</p>
 					<div class="flex justify-center mb-12">
-						<div class="showcase-ui-toggle inline-flex rounded-lg border border-border bg-muted p-0.5 text-sm">
-							<button data-ui-select="tailwind" class="rounded-md px-4 py-2 font-medium transition-colors text-muted-foreground data-[active]:bg-background data-[active]:text-foreground data-[active]:shadow-sm">
-								Tailwind
-							</button>
-							<button data-ui-select="shadcn" class="rounded-md px-4 py-2 font-medium transition-colors text-muted-foreground data-[active]:bg-background data-[active]:text-foreground data-[active]:shadow-sm">
-								shadcn/ui
-							</button>
-						</div>
+						<UIToggle variant="text" />
 					</div>
 					<TailwindShowcase />
 					<ShadcnShowcase client:load />

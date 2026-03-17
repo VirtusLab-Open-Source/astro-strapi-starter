@@ -1,18 +1,41 @@
 ---
+import TailwindLogo from "./icons/TailwindLogo.astro";
+import ShadcnLogo from "./icons/ShadcnLogo.astro";
+
+type Props = {
+  variant?: "text" | "responsive";
+};
+
+const { variant = "text" } = Astro.props;
+const isResponsive = variant === "responsive";
 ---
 
-<div id="ui-toggle" class="inline-flex rounded-lg border border-border bg-muted p-0.5 text-sm">
+<div class="ui-toggle inline-flex rounded-lg border border-border bg-muted p-0.5 text-sm">
   <button
     data-ui-select="tailwind"
-    class="rounded-md px-3 py-1.5 font-medium transition-colors text-muted-foreground data-[active]:bg-background data-[active]:text-foreground data-[active]:shadow-sm"
+    class="rounded-md px-3 py-1.5 font-medium transition-colors text-muted-foreground data-[active]:bg-background data-[active]:text-foreground data-[active]:shadow-sm flex items-center gap-1.5"
   >
-    Tailwind
+    {isResponsive ? (
+      <>
+        <TailwindLogo class="size-4 sm:hidden" />
+        <span class="hidden sm:inline">Tailwind</span>
+      </>
+    ) : (
+      <span>Tailwind</span>
+    )}
   </button>
   <button
     data-ui-select="shadcn"
-    class="rounded-md px-3 py-1.5 font-medium transition-colors text-muted-foreground data-[active]:bg-background data-[active]:text-foreground data-[active]:shadow-sm"
+    class="rounded-md px-3 py-1.5 font-medium transition-colors text-muted-foreground data-[active]:bg-background data-[active]:text-foreground data-[active]:shadow-sm flex items-center gap-1.5"
   >
-    shadcn/ui
+    {isResponsive ? (
+      <>
+        <ShadcnLogo class="size-4 sm:hidden" />
+        <span class="hidden sm:inline">shadcn/ui</span>
+      </>
+    ) : (
+      <span>shadcn/ui</span>
+    )}
   </button>
 </div>
 
