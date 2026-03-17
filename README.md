@@ -12,7 +12,7 @@ All-in-one starter combining Astro, Strapi CMS, TailwindCSS, and shadcn/ui with 
 
 ## ✨ Features
 
-- ⚡ **Astro 5** - Latest version with ultra-fast static sites
+- ⚡ **Astro 6** - Latest version with ultra-fast static sites
 - 📝 **Strapi CMS** - Headless CMS for content management
 - 🧱 **Strapi Astro Blocks Field** - Modular & flexible content block system
 - 🔄 **Strapi Astro Loader** - Automatic content loading from Strapi

@@ -19,24 +19,26 @@
 <script>
   function initUIToggle() {
     const html = document.documentElement;
-    const buttons = document.querySelectorAll("[data-ui-select]");
+    const allButtons = document.querySelectorAll("[data-ui-select]");
 
-    const current = html.getAttribute("data-ui") || "tailwind";
-    buttons.forEach((btn) => {
-      if (btn.getAttribute("data-ui-select") === current) {
-        btn.setAttribute("data-active", "");
-      } else {
-        btn.removeAttribute("data-active");
-      }
-    });
+    function syncAll(mode: string) {
+      allButtons.forEach((b) => {
+        if (b.getAttribute("data-ui-select") === mode) {
+          b.setAttribute("data-active", "");
+        } else {
+          b.removeAttribute("data-active");
+        }
+      });
+    }
 
-    buttons.forEach((btn) => {
+    syncAll(html.getAttribute("data-ui") || "tailwind");
+
+    allButtons.forEach((btn) => {
       btn.addEventListener("click", () => {
         const mode = btn.getAttribute("data-ui-select")!;
         html.setAttribute("data-ui", mode);
         localStorage.setItem("ui-mode", mode);
-        buttons.forEach((b) => b.removeAttribute("data-active"));
-        btn.setAttribute("data-active", "");
+        syncAll(mode);
       });
     });
   }

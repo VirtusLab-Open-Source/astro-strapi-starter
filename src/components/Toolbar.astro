@@ -3,20 +3,23 @@ import ThemeToggle from "./ThemeToggle.astro";
 import UIToggle from "./UIToggle.astro";
 ---
 
-<header class="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
-  <div class="mx-auto flex max-w-4xl items-center justify-between px-4 h-14">
+<header class="sticky top-0 z-50 glass border-b-0">
+  <div class="mx-auto flex max-w-screen-2xl items-center justify-between px-4 sm:px-6 lg:px-10 h-14">
     <div class="flex items-center gap-3">
       <a href="https://sensinum.com" class="flex items-center hover:opacity-80 transition-opacity" aria-label="Sensinum">
-        <img src="/sensinum-logo.svg" alt="Sensinum" class="h-5 w-auto" />
+        <img src="https://www.sensinum.com/img/starter/sensinum-color-symbol.svg" alt="Sensinum" class="h-6 w-auto block sm:hidden" />
+        <img src="https://www.sensinum.com/img/starter/sensinum-color.svg" alt="Sensinum" class="h-5 w-auto hidden sm:block" />
       </a>
-      <div class="h-5 w-px bg-border" />
-      <a href="/" class="text-lg font-bold text-violet-400 hover:text-violet-300 transition-colors">
-        Astro × Strapi
+      <div class="h-5 w-px bg-foreground/10" />
+      <a href="/" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+        <img src="/logos/astro.svg" alt="Astro" class="h-5 w-auto dark:invert" />
+        <svg class="size-3 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <img src="/logos/strapi.svg" alt="Strapi" class="h-5 w-auto" />
       </a>
     </div>
     <div class="flex items-center gap-4">
       <UIToggle />
-      <div class="h-5 w-px bg-border" />
+      <div class="h-5 w-px bg-foreground/10" />
       <ThemeToggle />
     </div>
   </div>

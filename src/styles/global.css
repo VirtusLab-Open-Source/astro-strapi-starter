@@ -8,6 +8,12 @@
 @theme {
     --font-sans: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
 
+    --breakpoint-sm: 640px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1280px;
+    --breakpoint-2xl: 1440px;
+
     --color-brand-25: #9DEFC7;
     --color-brand-50: #F0FDF4;
     --color-brand-100: #DCFCE7;
@@ -152,6 +158,9 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   * {
     @apply border-border outline-ring/50;
     }
@@ -164,4 +173,282 @@
 html[data-ui="tailwind"] [data-showcase="shadcn"],
 html[data-ui="shadcn"] [data-showcase="tailwind"] {
   display: none;
+}
+
+/* ── Glass gradient section divider ── */
+.glass-divider {
+  position: relative;
+  height: 1px;
+}
+
+.glass-divider::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to right,
+      transparent,
+      oklch(0.72 0.19 155 / 18%) 30%,
+      oklch(0.65 0.22 300 / 25%) 50%,
+      oklch(0.72 0.19 155 / 18%) 70%,
+      transparent
+    );
+}
+
+.glass-divider::after {
+  content: "";
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  top: 1px;
+  height: 1px;
+  background:
+    linear-gradient(
+      to right,
+      transparent,
+      oklch(0.72 0.19 155 / 10%) 30%,
+      oklch(0.65 0.22 300 / 12%) 50%,
+      oklch(0.72 0.19 155 / 10%) 70%,
+      transparent
+    );
+}
+
+.dark .glass-divider::before {
+  background:
+    linear-gradient(
+      to right,
+      transparent,
+      oklch(0.72 0.19 155 / 15%) 30%,
+      oklch(0.65 0.22 300 / 20%) 50%,
+      oklch(0.72 0.19 155 / 15%) 70%,
+      transparent
+    );
+}
+
+.dark .glass-divider::after {
+  background:
+    linear-gradient(
+      to right,
+      transparent,
+      oklch(0.72 0.19 155 / 6%) 30%,
+      oklch(0.65 0.22 300 / 8%) 50%,
+      oklch(0.72 0.19 155 / 6%) 70%,
+      transparent
+    );
+}
+
+/* ── Chevron cascade animation (top → bottom wave) ── */
+@keyframes chevron-wave {
+  0%       { opacity: 0; transform: translateY(-6px); }
+  20%, 40% { opacity: 1; transform: translateY(0); }
+  60%      { opacity: 0.2; transform: translateY(4px); }
+  100%     { opacity: 0; transform: translateY(4px); }
+}
+
+.chevron-cascade-1 { animation: chevron-wave 2.4s ease-in-out infinite; }
+.chevron-cascade-2 { animation: chevron-wave 2.4s ease-in-out 0.35s infinite; }
+.chevron-cascade-3 { animation: chevron-wave 2.4s ease-in-out 0.7s infinite; }
+
+/* ── Hero pills crossfade (12s cycle, ~5.5s per state) ── */
+@keyframes pills-a {
+  0%, 46%  { opacity: 1; transform: translateY(0); }
+  50%, 96% { opacity: 0; transform: translateY(-6px); }
+  100%     { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pills-b {
+  0%, 46%  { opacity: 0; transform: translateY(6px); }
+  50%, 96% { opacity: 1; transform: translateY(0); }
+  100%     { opacity: 0; transform: translateY(6px); }
+}
+
+.hero-pills {
+  position: relative;
+  height: 4.5rem;
+}
+
+@media (min-width: 640px) {
+  .hero-pills {
+    height: 2.25rem;
+  }
+}
+
+.hero-pills-a,
+.hero-pills-b {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero-pills-a {
+  animation: pills-a 12s ease-in-out infinite;
+}
+
+.hero-pills-b {
+  animation: pills-b 12s ease-in-out infinite;
+}
+
+/* ── Glass / Frosted-glass utilities ── */
+.glass {
+  background: oklch(1 0 0 / 55%);
+  backdrop-filter: blur(20px) saturate(1.8);
+  -webkit-backdrop-filter: blur(20px) saturate(1.8);
+  border: 1px solid oklch(1 0 0 / 25%);
+  box-shadow:
+    0 1px 2px oklch(0 0 0 / 4%),
+    0 8px 32px oklch(0 0 0 / 6%),
+    inset 0 1px 0 oklch(1 0 0 / 40%);
+}
+
+.dark .glass {
+  background: oklch(1 0 0 / 6%);
+  border-color: oklch(1 0 0 / 10%);
+  box-shadow:
+    0 1px 2px oklch(0 0 0 / 20%),
+    0 8px 32px oklch(0 0 0 / 25%),
+    inset 0 1px 0 oklch(1 0 0 / 8%);
+}
+
+.glass-subtle {
+  background: oklch(1 0 0 / 40%);
+  backdrop-filter: blur(12px) saturate(1.4);
+  -webkit-backdrop-filter: blur(12px) saturate(1.4);
+  border: 1px solid oklch(1 0 0 / 20%);
+  box-shadow: 0 4px 16px oklch(0 0 0 / 4%);
+}
+
+.dark .glass-subtle {
+  background: oklch(1 0 0 / 4%);
+  border-color: oklch(1 0 0 / 8%);
+  box-shadow: 0 4px 16px oklch(0 0 0 / 15%);
+}
+
+/* ── Mesh gradient hero background ── */
+@keyframes mesh-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(30px, -20px) scale(1.05); }
+  50% { transform: translate(-20px, 15px) scale(0.95); }
+  75% { transform: translate(15px, 25px) scale(1.02); }
+}
+
+.mesh-gradient {
+  position: relative;
+  overflow: hidden;
+}
+
+.mesh-gradient::before,
+.mesh-gradient::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.5;
+  animation: mesh-drift 20s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.mesh-gradient::before {
+  width: 600px;
+  height: 600px;
+  top: -20%;
+  left: -10%;
+  background: oklch(0.80 0.18 155);
+  animation-delay: 0s;
+}
+
+.mesh-gradient::after {
+  width: 500px;
+  height: 500px;
+  bottom: -15%;
+  right: -10%;
+  background: oklch(0.75 0.18 300);
+  animation-delay: -10s;
+}
+
+.dark .mesh-gradient::before {
+  background: oklch(0.45 0.18 155);
+  opacity: 0.5;
+}
+
+.dark .mesh-gradient::after {
+  background: oklch(0.40 0.18 300);
+  opacity: 0.45;
+}
+
+/* third blob for richer mesh */
+.mesh-gradient-rich::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  filter: blur(120px);
+  background: oklch(0.82 0.14 80);
+  opacity: 0.3;
+  animation: mesh-drift 25s ease-in-out infinite reverse;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.dark .mesh-gradient-rich::before {
+  background: oklch(0.50 0.14 80);
+  opacity: 0.35;
+}
+
+/* ── Gradient border glow for featured cards ── */
+.glow-border {
+  position: relative;
+}
+
+.glow-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, oklch(0.72 0.19 155), oklch(0.65 0.22 300));
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.glow-border:hover::before {
+  opacity: 1;
+}
+
+/* ── Logo punch wave animation ── */
+@keyframes logo-punch {
+  0%, 15%, 100% {
+    transform: scale(1);
+  }
+  5% {
+    transform: scale(1.14);
+  }
+  10% {
+    transform: scale(0.97);
+  }
+}
+
+.logo-punch {
+  opacity: 0.4;
+  animation: logo-punch 8s ease-in-out infinite;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.logo-punch:hover {
+  opacity: 0.75;
+  transform: scale(1.05);
+  animation: none;
 }

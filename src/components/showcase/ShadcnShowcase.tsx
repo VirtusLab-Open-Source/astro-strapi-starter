@@ -10,8 +10,8 @@ import {
 
 export function ShadcnShowcase() {
   return (
-    <div data-showcase="shadcn" className="space-y-10">
-      <div className="rounded-lg border border-dashed border-violet-400/40 bg-violet-500/5 px-3 py-1.5 text-xs font-medium text-violet-600 dark:text-violet-400 inline-flex items-center gap-1.5">
+    <div data-showcase="shadcn" className="glass rounded-2xl p-6 lg:p-8 space-y-10">
+      <div className="inline-flex items-center gap-1.5 rounded-full border border-dashed border-violet-400/40 bg-violet-500/10 px-3 py-1.5 text-xs font-medium text-violet-600 dark:text-violet-400">
         <svg
           className="size-3.5"
           xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +62,7 @@ export function ShadcnShowcase() {
       <section>
         <h3 className="text-lg font-semibold mb-4">Card</h3>
         <div className="grid gap-4 sm:grid-cols-2">
-          <Card>
+          <Card className="glass border-0">
             <CardHeader>
               <CardTitle>React Component</CardTitle>
               <CardDescription>
@@ -76,7 +76,7 @@ export function ShadcnShowcase() {
               </p>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="glass border-0">
             <CardHeader>
               <CardTitle>Rich Ecosystem</CardTitle>
               <CardDescription>

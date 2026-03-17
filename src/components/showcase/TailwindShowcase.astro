@@ -8,8 +8,8 @@ import CardDescription from "../tailwind/CardDescription.astro";
 import CardContent from "../tailwind/CardContent.astro";
 ---
 
-<div data-showcase="tailwind" class="space-y-10">
-  <div class="rounded-lg border border-dashed border-primary/30 bg-primary/5 px-3 py-1.5 text-xs font-medium text-primary inline-flex items-center gap-1.5">
+<div data-showcase="tailwind" class="glass rounded-2xl p-6 lg:p-8 space-y-10">
+  <div class="inline-flex items-center gap-1.5 rounded-full border border-dashed border-primary/30 bg-primary/10 px-3 py-1.5 text-xs font-medium text-primary">
     <svg class="size-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
     Pure Astro + Tailwind CSS — zero JavaScript, server-rendered
   </div>
@@ -47,7 +47,7 @@ import CardContent from "../tailwind/CardContent.astro";
   <section>
     <h3 class="text-lg font-semibold mb-4">Card</h3>
     <div class="grid gap-4 sm:grid-cols-2">
-      <Card>
+      <Card class="glass border-0">
         <CardHeader>
           <CardTitle>Astro Component</CardTitle>
           <CardDescription>Built with .astro files and Tailwind utility classes</CardDescription>
@@ -59,7 +59,7 @@ import CardContent from "../tailwind/CardContent.astro";
           </p>
         </CardContent>
       </Card>
-      <Card>
+      <Card class="glass border-0">
         <CardHeader>
           <CardTitle>Zero Bundle Cost</CardTitle>
           <CardDescription>No React runtime, no hydration overhead</CardDescription>
