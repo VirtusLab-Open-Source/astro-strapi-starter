@@ -3,48 +3,47 @@ import TailwindLogo from "./icons/TailwindLogo.astro";
 import ShadcnLogo from "./icons/ShadcnLogo.astro";
 
 type Props = {
-  variant?: "text" | "responsive";
+  showIcons?: boolean;
+  hideTextOnMobile?: boolean;
 };
 
-const { variant = "text" } = Astro.props;
-const isResponsive = variant === "responsive";
+const { showIcons = false, hideTextOnMobile = false } = Astro.props;
+const textClass = hideTextOnMobile ? "hidden sm:inline" : "";
 ---
 
-<div class="ui-toggle inline-flex rounded-lg border border-border bg-muted p-0.5 text-sm">
+<div class="ui-toggle relative inline-flex rounded-lg border border-border bg-muted p-0.5 text-sm">
+  <div class="ui-toggle-pill absolute top-0.5 left-0.5 h-[calc(100%-4px)] rounded-md bg-background shadow-sm transition-all duration-300 ease-out pointer-events-none" />
   <button
     data-ui-select="tailwind"
     aria-label="Switch to Tailwind CSS"
-    class="rounded-md px-3 py-1.5 font-medium transition-colors text-muted-foreground data-[active]:bg-background data-[active]:text-foreground data-[active]:shadow-sm flex items-center gap-1.5"
+    class="relative z-10 rounded-md px-3 py-1.5 font-medium transition-colors duration-200 text-muted-foreground data-[active]:text-foreground flex items-center gap-1.5"
   >
-    {isResponsive ? (
-      <>
-        <TailwindLogo class="size-4 sm:hidden" />
-        <span class="hidden sm:inline">Tailwind</span>
-      </>
-    ) : (
-      <span>Tailwind</span>
-    )}
+    {showIcons && <TailwindLogo class="size-4" />}
+    <span class={textClass}>Tailwind</span>
   </button>
   <button
     data-ui-select="shadcn"
     aria-label="Switch to shadcn/ui"
-    class="rounded-md px-3 py-1.5 font-medium transition-colors text-muted-foreground data-[active]:bg-background data-[active]:text-foreground data-[active]:shadow-sm flex items-center gap-1.5"
+    class="relative z-10 rounded-md px-3 py-1.5 font-medium transition-colors duration-200 text-muted-foreground data-[active]:text-foreground flex items-center gap-1.5"
   >
-    {isResponsive ? (
-      <>
-        <ShadcnLogo class="size-4 sm:hidden" />
-        <span class="hidden sm:inline">shadcn/ui</span>
-      </>
-    ) : (
-      <span>shadcn/ui</span>
-    )}
+    {showIcons && <ShadcnLogo class="size-4" />}
+    <span class={textClass}>shadcn/ui</span>
   </button>
 </div>
 
 <script>
   function initUIToggle() {
     const html = document.documentElement;
+    const toggles = document.querySelectorAll<HTMLElement>(".ui-toggle");
     const allButtons = document.querySelectorAll("[data-ui-select]");
+
+    function movePill(toggle: HTMLElement, activeBtn: Element) {
+      const pill = toggle.querySelector<HTMLElement>(".ui-toggle-pill");
+      if (!pill) return;
+      const btn = activeBtn as HTMLElement;
+      pill.style.width = `${btn.offsetWidth}px`;
+      pill.style.transform = `translateX(${btn.offsetLeft - 2}px)`;
+    }
 
     function syncAll(mode: string) {
       allButtons.forEach((b) => {
@@ -54,9 +53,22 @@ const isResponsive = variant === "responsive";
           b.removeAttribute("data-active");
         }
       });
+      toggles.forEach((toggle) => {
+        const active = toggle.querySelector("[data-active]");
+        if (active) movePill(toggle, active);
+      });
     }
 
     syncAll(html.getAttribute("data-ui") || "tailwind");
+
+    const ro = new ResizeObserver(() => {
+      const mode = html.getAttribute("data-ui") || "tailwind";
+      toggles.forEach((toggle) => {
+        const active = toggle.querySelector(`[data-ui-select="${mode}"]`);
+        if (active) movePill(toggle, active);
+      });
+    });
+    toggles.forEach((t) => ro.observe(t));
 
     allButtons.forEach((btn) => {
       btn.addEventListener("click", () => {

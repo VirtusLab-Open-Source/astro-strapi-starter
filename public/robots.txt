@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://astro-strapi-starter.vercel.app/sitemap-index.xml
+Sitemap: https://astrostrapi.io/sitemap-index.xml

@@ -8,7 +8,7 @@ import StrapiLogo from "./icons/StrapiLogo.astro";
 <header class="sticky top-0 z-50 glass border-b-0">
   <div class="mx-auto flex max-w-screen-2xl items-center justify-between px-4 sm:px-6 lg:px-10 h-14">
     <div class="flex items-center gap-3">
-      <a href="https://sensinum.com" class="flex items-center hover:opacity-80 transition-opacity" aria-label="Sensinum">
+      <a href="https://sensinum.com" target="_blank" rel="noopener noreferrer" class="flex items-center hover:opacity-80 transition-opacity" aria-label="Sensinum">
         <img src="https://www.sensinum.com/img/starter/sensinum-color-symbol.svg" alt="Sensinum" class="h-6 w-auto block sm:hidden" />
         <img src="https://www.sensinum.com/img/starter/sensinum-color.svg" alt="Sensinum" class="h-5 w-auto hidden sm:block" />
       </a>
@@ -20,7 +20,7 @@ import StrapiLogo from "./icons/StrapiLogo.astro";
       </a>
     </div>
     <div class="flex items-center gap-4">
-      <UIToggle variant="responsive" />
+      <UIToggle showIcons hideTextOnMobile />
       <div class="h-5 w-px bg-foreground/10" />
       <ThemeToggle />
     </div>

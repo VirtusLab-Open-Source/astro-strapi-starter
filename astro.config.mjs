@@ -6,7 +6,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://astro-strapi-starter.vercel.app",
+	site: "https://astrostrapi.io",
 	integrations: [react(), sitemap()],
 	vite: {
 		plugins: [tailwindcss()],

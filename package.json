@@ -1,7 +1,7 @@
 {
   "name": "astro-strapi-starter",
   "type": "module",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "All-in-one starter combining Astro 6, Strapi CMS, TailwindCSS 4, and shadcn/ui with dark mode, Inter font, and live component showcase.",
   "private": true,
   "scripts": {
