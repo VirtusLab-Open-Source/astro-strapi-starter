@@ -28,6 +28,23 @@ All-in-one starter combining Astro, Strapi CMS, TailwindCSS, and shadcn/ui with 
 
 ---
 
+## 📖 Table of Contents
+
+- [Quick Start](#-quick-start)
+- [Project Structure](#️-project-structure)
+- [Lighthouse Score](#-lighthouse-score)
+- [Dark / Light Mode](#-dark--light-mode)
+- [UI Components: shadcn/ui vs Pure Tailwind](#-ui-components-shadcnui-vs-pure-tailwind)
+- [Strapi Astro Packages](#-strapi-astro-packages)
+- [Available Commands](#-available-commands)
+- [Deploy](#-deploy)
+- [Useful Links](#-useful-links)
+- [Development](#-development)
+- [Contributing](#-contributing)
+- [License](#-license)
+
+---
+
 ## 🚀 Quick Start
 
 ### 1. Use a starter template
@@ -105,6 +122,14 @@ Open [http://localhost:4321](http://localhost:4321) in your browser.
 ├── package.json
 └── astro.config.mjs
 ```
+
+## 🏆 Lighthouse Score
+
+Nearly perfect scores out of the box — no extra optimization needed.
+
+| Desktop | Mobile |
+|---------|--------|
+| ![Lighthouse Desktop](public/preview-lighthouse-desktop.png) | ![Lighthouse Mobile](public/preview-lighthouse-mobile.png) |
 
 ## 🌗 Dark / Light Mode
 
