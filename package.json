@@ -1,8 +1,8 @@
 {
   "name": "astro-strapi-starter",
   "type": "module",
-  "version": "3.0.1",
-  "description": "All-in-one starter combining Astro 6, Strapi CMS, TailwindCSS 4, and shadcn/ui with dark mode, Inter font, and live component showcase.",
+  "version": "3.1.0",
+  "description": "AI-native first: Astro 6, Strapi, Tailwind 4, shadcn/ui — ships with AGENTS.md, .ai/ skills, and Cursor rules. Dark mode, Inter, live UI showcase.",
   "private": true,
   "scripts": {
     "dev": "astro dev",
@@ -18,8 +18,8 @@
     "@astrojs/react": "^5.0.0",
     "@astrojs/sitemap": "^3.7.1",
     "@fontsource-variable/inter": "^5.2.8",
-    "@sensinum/astro-strapi-blocks": "^1.2.7",
-    "@sensinum/astro-strapi-loader": "^1.1.2",
+    "@sensinum/astro-strapi-blocks": "^1.4.0",
+    "@sensinum/astro-strapi-loader": "^1.3.0",
     "@tailwindcss/vite": "^4.1.3",
     "@types/canvas-confetti": "^1.9.0",
     "astro": "^6.0.5",

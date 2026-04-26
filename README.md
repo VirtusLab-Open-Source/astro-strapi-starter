@@ -3,10 +3,11 @@
 </div>
 <div align="center" style="margin-bottom: 2rem">
   <h1>Astro x Strapi Starter</h1>
+  <p style="max-width: 36rem; margin: 0.5rem auto 0.75rem; line-height: 1.5"><strong>AI-native first</strong> — agent context (<code>AGENTS.md</code>), <a href="./.ai/">Agent Skills</a> under <code>.ai/</code>, and <a href="./.cursor/rules/">Cursor rules</a> are part of the product, not a README afterthought. You extend the stack with AI, not against it.</p>
   <a href="https://astrostrapi.io/"><strong>🔗 Live Demo</strong></a>
 </div>
 
-All-in-one starter combining Astro, Strapi CMS, TailwindCSS, and shadcn/ui with support for **[Strapi Astro Loader](https://github.com/VirtusLab-Open-Source/astro-strapi-loader)** and **[Strapi Astro Blocks Field](https://github.com/VirtusLab-Open-Source/astro-strapi-blocks)**.
+All-in-one starter combining Astro, Strapi CMS, TailwindCSS, and shadcn/ui with support for **[Strapi Astro Loader](https://github.com/VirtusLab-Open-Source/astro-strapi-loader)** and **[Strapi Astro Blocks Field](https://github.com/VirtusLab-Open-Source/astro-strapi-blocks)**. Details: [AI-native support](#-ai-native-support).
 
 ---
 
@@ -16,6 +17,7 @@ All-in-one starter combining Astro, Strapi CMS, TailwindCSS, and shadcn/ui with 
 - 📝 **Strapi CMS** - Headless CMS for content management
 - 🧱 **Strapi Astro Blocks Field** - Modular & flexible content block system
 - 🔄 **Strapi Astro Loader** - Automatic content loading from Strapi
+- 🤖 **AI-native support** - `AGENTS.md`, Agent Skills under `.ai/`, and Cursor rules tailored to Astro x Strapi for Loader &amp; Blocks
 - 🎨 **TailwindCSS 4** - Modern utility-first CSS styling
 - 🧩 **shadcn/ui** - Pre-configured React component library (optional)
 - 🌗 **Dark / Light mode** - Toggle with system preference detection
@@ -30,18 +32,20 @@ All-in-one starter combining Astro, Strapi CMS, TailwindCSS, and shadcn/ui with 
 
 ## 📖 Table of Contents
 
-- [Quick Start](#-quick-start)
-- [Project Structure](#️-project-structure)
-- [Lighthouse Score](#-lighthouse-score)
-- [Dark / Light Mode](#-dark--light-mode)
-- [UI Components: shadcn/ui vs Pure Tailwind](#-ui-components-shadcnui-vs-pure-tailwind)
-- [Strapi Astro Packages](#-strapi-astro-packages)
-- [Available Commands](#-available-commands)
-- [Deploy](#-deploy)
-- [Useful Links](#-useful-links)
-- [Development](#-development)
-- [Contributing](#-contributing)
-- [License](#-license)
+- [✨ Features](#-features)
+- [🚀 Quick Start](#-quick-start)
+- [🗂️ Project Structure](#️-project-structure)
+- [🤖 AI-native support](#-ai-native-support)
+- [🏆 Lighthouse Score](#-lighthouse-score)
+- [🌗 Dark / Light Mode](#-dark--light-mode)
+- [🧩 UI Components: shadcn/ui vs Pure Tailwind](#-ui-components-shadcnui-vs-pure-tailwind)
+- [📦 Strapi Astro Packages](#-strapi-astro-packages)
+- [🔨 Available Commands](#-available-commands)
+- [🌍 Deploy](#-deploy)
+- [📚 Useful Links](#-useful-links)
+- [🔧 Development](#-development)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
 
 ---
 
@@ -122,6 +126,20 @@ Open [http://localhost:4321](http://localhost:4321) in your browser.
 ├── package.json
 └── astro.config.mjs
 ```
+
+## 🤖 AI-native support
+
+This starter ships first-class **agent context** for any AI coding tool (Cursor, Claude Code, Copilot, and other SKILL.md–compatible clients):
+
+- **[`AGENTS.md`](./AGENTS.md)** (root) points to the full guide: **[`.ai/AGENTS.md`](./.ai/AGENTS.md)**
+- **Agent Skills** (YAML + markdown) under **`.ai/`**:
+  - [`.ai/astro-strapi-starter/SKILL.md`](./.ai/astro-strapi-starter/SKILL.md) — end-to-end workflow for this template (the only long-form skill kept here)
+  - [`.ai/astro-strapi-loader/SKILL.md`](./.ai/astro-strapi-loader/SKILL.md) and [`.ai/astro-strapi-blocks/SKILL.md`](./.ai/astro-strapi-blocks/SKILL.md) — **short stubs** with links to the canonical **SKILL** (and related) files in [`astro-strapi-loader`](https://github.com/VirtusLab-Open-Source/astro-strapi-loader/tree/main/.ai) and [`astro-strapi-blocks`](https://github.com/VirtusLab-Open-Source/astro-strapi-blocks/tree/main/.ai) (no duplicate prose in this repo)
+- **Cursor project rules** in [`.cursor/rules/`](./.cursor/rules/) — [`astro-strapi-loader`](./.cursor/rules/astro-strapi-loader.mdc) and [`astro-strapi-blocks`](./.cursor/rules/astro-strapi-blocks.mdc) are **thin pointers** to the [loader](https://github.com/VirtusLab-Open-Source/astro-strapi-loader/blob/main/.cursor/rules/astro-strapi-loader.mdc) and [blocks](https://github.com/VirtusLab-Open-Source/astro-strapi-blocks/blob/main/.cursor/rules/astro-strapi-blocks.mdc) upstream rules; [`astro-strapi-starter`](./.cursor/rules/astro-strapi-starter.mdc) and [`tailwind-shadcn`](./.cursor/rules/tailwind-shadcn.mdc) are defined in this repo
+
+The authoritative manuals for the packages live in those upstream `.ai` trees. Pin a **tag or commit** in the raw-GitHub URLs to match your `package.json` version when you need strict reproducibility.
+
+To use a skill in a tool that only loads from `.cursor/skills/`, copy or symlink [`.ai/astro-strapi-starter/`](./.ai/astro-strapi-starter) there. For loader and blocks, copy from upstream raw URLs (see the stub files) or fetch them in your tool if it supports **URL-based** skills.
 
 ## 🏆 Lighthouse Score
 

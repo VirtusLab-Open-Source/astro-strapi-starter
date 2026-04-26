@@ -7,9 +7,9 @@ import { ShadcnShowcase } from "../components/showcase/ShadcnShowcase";
 import UIToggle from "../components/UIToggle.astro";
 import AstroLogo from "../components/icons/AstroLogo.astro";
 import StrapiLogo from "../components/icons/StrapiLogo.astro";
-import TailwindLogo from "../components/icons/TailwindLogo.astro";
-import ShadcnLogo from "../components/icons/ShadcnLogo.astro";
 import TypeScriptLogo from "../components/icons/TypeScriptLogo.astro";
+import AiNativeLogo from "../components/icons/AiNativeLogo.astro";
+import PaintbrushIcon from "../components/icons/PaintbrushIcon.astro";
 import "../styles/global.css";
 
 import type {
@@ -40,14 +40,23 @@ if (!homepage) {
 			id: 0,
 			title: "Performance that leaders trust",
 			subtitle:
-				"The Astro 6 & Strapi starter chosen by teams who set the pace — not follow it.",
+				"The future of how you build is now — Astro 6 × Strapi, agent-ready today, not a roadmap promise for next quarter.",
 			content: [
 				{
 					type: "paragraph",
 					children: [
 						{
-							text: "Zero-JS by default. Near-perfect Lighthouse scores out of the box. Trusted by trendsetters who demand speed, scalability, and elegance — from startups to enterprise. Tailwind CSS 4, shadcn/ui, dark mode, and everything wired up to ship today.",
 							type: "text",
+							text: "Zero JS by design, strong Lighthouse, defaults you deploy. Strapi Loader and Strapi Blocks connect Strapi to Astro — typed collections, rich text as components. Tailwind 4, shadcn, dark mode; Tailwind-first or React + shadcn. AI-native driven with ",
+						},
+						{ type: "text", text: "AGENTS.md", bold: true },
+						{ type: "text", text: ", " },
+						{ type: "text", text: ".ai/", bold: true },
+						{ type: "text", text: ", and " },
+						{ type: "text", text: ".cursor/rules", bold: true },
+						{
+							type: "text",
+							text: " — in-tree for your team and agents.",
 						},
 					],
 				},
@@ -65,6 +74,9 @@ if (!homepage) {
 }
 
 const pageTitle = homepage?.title || "Astro × Strapi Starter | Always Free, Always Open — by Sensinum";
+
+const pageDescription =
+	"The future of the stack is now: Astro 6, Strapi, Sensinum Loader & Blocks, Tailwind 4, shadcn, dark mode, strong Lighthouse — agent context via AGENTS.md, .ai/, and Cursor rules.";
 ---
 
 <html lang="en">
@@ -77,16 +89,16 @@ const pageTitle = homepage?.title || "Astro × Strapi Starter | Always Free, Alw
 		<title>{pageTitle}</title>
 		<meta
 			name="description"
-			content="Production-ready starter with Astro 6, Strapi CMS, Tailwind CSS 4, shadcn/ui, and dark mode."
+			content={pageDescription}
 		/>
-		<meta name="keywords" content="Astro, Strapi, Tailwind CSS, shadcn/ui, starter, template, headless CMS, dark mode, TypeScript, React" />
+		<meta name="keywords" content="Astro, Strapi, AI-native, Cursor, agent skills, AGENTS.md, Tailwind CSS, shadcn/ui, starter, headless CMS, TypeScript" />
 		<meta name="author" content="Sensinum — VirtusLab Group" />
 
 		{/* Open Graph */}
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={Astro.url.href} />
 		<meta property="og:title" content={pageTitle} />
-		<meta property="og:description" content="Production-ready starter with Astro 6, Strapi CMS, Tailwind CSS 4, shadcn/ui, and dark mode." />
+		<meta property="og:description" content={pageDescription} />
 		<meta property="og:image" content={new URL("/og-image.png", Astro.url).href} />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
@@ -96,7 +108,7 @@ const pageTitle = homepage?.title || "Astro × Strapi Starter | Always Free, Alw
 		{/* Twitter Card */}
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={pageTitle} />
-		<meta name="twitter:description" content="Production-ready starter with Astro 6, Strapi CMS, Tailwind CSS 4, shadcn/ui, and dark mode." />
+		<meta name="twitter:description" content={pageDescription} />
 		<meta name="twitter:image" content={new URL("/og-image.png", Astro.url).href} />
 
 		{/* JSON-LD Structured Data */}
@@ -104,7 +116,7 @@ const pageTitle = homepage?.title || "Astro × Strapi Starter | Always Free, Alw
 			"@context": "https://schema.org",
 			"@type": "SoftwareSourceCode",
 			"name": "Astro × Strapi Starter",
-			"description": "Production-ready starter combining Astro 6, Strapi CMS, Tailwind CSS 4, and shadcn/ui with dark mode, Inter font, and live component showcase.",
+			"description": pageDescription,
 			"url": "https://github.com/VirtusLab-Open-Source/astro-strapi-starter",
 			"codeRepository": "https://github.com/VirtusLab-Open-Source/astro-strapi-starter",
 			"programmingLanguage": ["TypeScript", "Astro", "CSS"],
@@ -185,6 +197,13 @@ const pageTitle = homepage?.title || "Astro × Strapi Starter | Always Free, Alw
 						The full stack you'd assemble yourself — already wired, tested, and ready.
 					</p>
 					<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+						<div class="glass glow-border rounded-2xl p-6 lg:p-8 transition-all hover:-translate-y-1 border-primary/20">
+							<div class="size-10 rounded-xl bg-violet-500/15 flex items-center justify-center mb-4">
+								<AiNativeLogo class="size-5 text-violet-600 dark:text-violet-400" />
+							</div>
+							<h3 class="font-semibold mb-2 flex items-center flex-wrap gap-x-1.5">AI-native first <a href="https://github.com/VirtusLab-Open-Source/astro-strapi-starter/blob/main/AGENTS.md" target="_blank" rel="noopener noreferrer" aria-label="AGENTS.md on GitHub" class="text-muted-foreground hover:text-foreground transition-colors"><svg class="size-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></h3>
+							<p class="text-sm text-muted-foreground">Agent context, skills under <code class="text-xs bg-muted/80 px-1 py-0.5 rounded">.ai/</code>, and scoped Cursor rules — extend the stack with your AI tools, not against them.</p>
+						</div>
 						<div class="glass glow-border rounded-2xl p-6 lg:p-8 transition-all hover:-translate-y-1">
 							<div class="size-10 rounded-xl bg-[#3245FF]/15 flex items-center justify-center mb-4">
 								<AstroLogo class="size-5 text-foreground" />
@@ -201,17 +220,14 @@ const pageTitle = homepage?.title || "Astro × Strapi Starter | Always Free, Alw
 						</div>
 						<div class="glass glow-border rounded-2xl p-6 lg:p-8 transition-all hover:-translate-y-1">
 							<div class="size-10 rounded-xl bg-sky-500/15 flex items-center justify-center mb-4">
-								<TailwindLogo class="size-5 text-foreground" />
+								<PaintbrushIcon class="size-5 text-sky-600 dark:text-sky-400" />
 							</div>
-							<h3 class="font-semibold mb-2 flex items-center gap-1.5">Tailwind CSS 4 <a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer" aria-label="Tailwind CSS website" class="text-muted-foreground hover:text-foreground transition-colors"><svg class="size-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></h3>
-							<p class="text-sm text-muted-foreground">CSS-first config with OKLCH color system. Custom design tokens already wired into the theme.</p>
-						</div>
-						<div class="glass glow-border rounded-2xl p-6 lg:p-8 transition-all hover:-translate-y-1">
-							<div class="size-10 rounded-xl bg-foreground/10 flex items-center justify-center mb-4">
-								<ShadcnLogo class="size-5 text-foreground" />
-							</div>
-							<h3 class="font-semibold mb-2 flex items-center gap-1.5">shadcn/ui <a href="https://ui.shadcn.com" target="_blank" rel="noopener noreferrer" aria-label="shadcn/ui website" class="text-muted-foreground hover:text-foreground transition-colors"><svg class="size-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></h3>
-							<p class="text-sm text-muted-foreground">Production-grade React components on top of Radix UI. Extend with one CLI command.</p>
+							<h3 class="font-semibold mb-2 flex items-center flex-wrap gap-x-1.5 gap-y-1">
+								<span class="inline-flex items-center gap-1.5">Tailwind CSS 4 <a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer" aria-label="Tailwind CSS website" class="text-muted-foreground hover:text-foreground transition-colors"><svg class="size-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></span>
+								<span class="text-muted-foreground font-normal" aria-hidden="true">|</span>
+								<span class="inline-flex items-center gap-1.5">shadcn/ui <a href="https://ui.shadcn.com" target="_blank" rel="noopener noreferrer" aria-label="shadcn/ui website" class="text-muted-foreground hover:text-foreground transition-colors"><svg class="size-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></span>
+							</h3>
+							<p class="text-sm text-muted-foreground">Tailwind 4 with OKLCH and theme tokens; shadcn/ui on Radix for React islands — add what you need via the CLI.</p>
 						</div>
 						<div class="glass glow-border rounded-2xl p-6 lg:p-8 transition-all hover:-translate-y-1">
 							<div class="size-10 rounded-xl bg-primary/15 flex items-center justify-center mb-4">

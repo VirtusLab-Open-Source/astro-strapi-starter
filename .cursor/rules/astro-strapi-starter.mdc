@@ -1,0 +1,17 @@
+---
+description: Astro x Strapi starter — layout, content collections, block renderer vs StrapiBlocks, types
+globs: "**/src/**"
+alwaysApply: false
+---
+
+# Astro Strapi starter
+
+- **Stack:** Astro 6, Strapi 5, `@sensinum/astro-strapi-loader`, `@sensinum/astro-strapi-blocks` (read [`.ai/AGENTS.md`](../../.ai/AGENTS.md) and [`.ai/astro-strapi-starter/SKILL.md`](../../.ai/astro-strapi-starter/SKILL.md)).
+
+- **Content:** `src/content.config.ts` exports `collections` from `generateCollections`. Handle Strapi unavailability in `try/catch` so static builds or local dev can still run.
+
+- **Two patterns:** (1) **Dynamic zone** entries with `__component` → `BlockRenderer.astro` and siblings under `src/components/blocks/`. (2) **Rich text Blocks JSON** from Strapi 5 → `<StrapiBlocks />` inside those components when the field is a Blocks editor, not a separate dynamic-zone component.
+
+- **Types:** Keep `src/types/strapi.ts` aligned with the Strapi content types; extend when adding new components.
+
+- **Do not** commit `.env` or real API tokens. Use `env.example` as the template for variable names.

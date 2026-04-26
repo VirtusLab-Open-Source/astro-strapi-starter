@@ -1,0 +1,17 @@
+---
+description: Tailwind CSS 4 + shadcn-style UI — global.css, components.json, cn(), Astro + React
+globs: "**/src/styles/**/*.css,**/components.json,**/src/components/ui/**,**/src/lib/utils.ts"
+alwaysApply: false
+---
+
+# Tailwind CSS 4 and shadcn-style components (this starter)
+
+- **Tailwind v4** is applied via `@tailwindcss/vite` in `astro.config.mjs`. Global entry: `src/styles/global.css` with `@import 'tailwindcss'`, `@theme`, and shadcn theme imports. Prefer **utilities** and existing **CSS variables** from that file; extend tokens in `@theme` when adding project-wide design changes.
+
+- **Shadcn-style React components** live in `src/components/ui/` and are generated from [shadcn/ui](https://ui.shadcn.com/) using `components.json` (New York style, `src/styles/global.css`). Use the shadcn CLI to add or update components; do not hand-copy unrelated project snippets.
+
+- **Class merging** for React: use `cn()` from `@/lib/utils` (clsx + tailwind-merge). For Astro, use regular `class` strings or `clsx` where the starter already does.
+
+- **Astro + Tailwind** showcase components and **React** shadcn elements coexist; keep **spacing, color, and radius** consistent with the design tokens in `global.css` so the UI looks unified.
+
+- This repo does **not** include proprietary Tailwind Insiders “agent rules.” Follow public [Tailwind v4 documentation](https://tailwindcss.com/docs) and the patterns already in the codebase.
