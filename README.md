@@ -116,7 +116,7 @@ Open [http://localhost:4321](http://localhost:4321) in your browser.
 │   ├── pages/
 │   │   └── index.astro            # Homepage
 │   ├── types/
-│   │   └── strapi.ts              # TypeScript types for Strapi
+│   │   └── strapi/                # Strapi TS types (`index.ts` re-exports modules)
 │   ├── content.config.ts          # Strapi Loader configuration
 │   ├── styles/
 │   │   └── global.css             # Theme, fonts, toggle visibility rules

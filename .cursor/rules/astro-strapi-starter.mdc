@@ -12,6 +12,6 @@ alwaysApply: false
 
 - **Two patterns:** (1) **Dynamic zone** entries with `__component` → `BlockRenderer.astro` and siblings under `src/components/blocks/`. (2) **Rich text Blocks JSON** from Strapi 5 → `<StrapiBlocks />` inside those components when the field is a Blocks editor, not a separate dynamic-zone component.
 
-- **Types:** Keep `src/types/strapi.ts` aligned with the Strapi content types; extend when adding new components.
+- **Types:** Under `src/types/strapi/`, add or edit focused modules and **re-export** from `index.ts`. Align with Content Builder / Content API; the loader emits Zod from schema introspection — hand types should match the same shapes.
 
 - **Do not** commit `.env` or real API tokens. Use `env.example` as the template for variable names.

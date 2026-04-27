@@ -27,7 +27,7 @@ The `.ai/` directory holds **portable, tool-agnostic** context. A thin [`AGENTS.
 ## This repository (conventions)
 
 - **Content layer:** `src/content.config.ts` — `generateCollections` merges into `export const collections`. Handle Strapi being offline: `try/catch` and export static fallbacks or empty collections as the starter does.
-- **Strapi types:** `src/types/strapi.ts` — keep in sync with content-type shapes.
+- **Strapi types:** `src/types/strapi/` — one concern per file (e.g. `media.ts`, `components.ts`); **re-export** everything from `src/types/strapi/index.ts` so imports stay `from '../types/strapi'`. Keep shapes aligned with the Strapi Content API and Content Builder schema (see starter skill: Content Builder GET endpoints + loader Zod).
 - **Dynamic zone components:** `src/components/blocks/BlockRenderer.astro` dispatches `__component` to Astro block components. **Rich-text block fields** inside components use `StrapiBlocks` (e.g. `TextBlock.astro`, `HeroBlock.astro`).
 - **Styles:** `src/styles/global.css` — Tailwind v4 `@import 'tailwindcss'`, `@theme`, shadcn theme imports. Prefer utilities and design tokens already defined there.
 - **shadcn:** `components.json` + `src/components/ui/` — new primitives via the shadcn CLI; use `@/lib/utils` `cn()` for class merging.
