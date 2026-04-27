@@ -2,9 +2,9 @@
 name: astro-strapi-starter
 description: >-
   Develop and extend the Astro + Strapi starter: content.config with @sensinum/astro-strapi-loader,
-  Strapi 5 data in Astro pages, StrapiBlocks for rich text Blocks fields, dynamic zone BlockRenderer,
-  Tailwind 4 and shadcn/ui. Use when wiring Strapi collections, new block components, or
-  CMS-driven pages using this template. Types live under src/types/strapi/ with a barrel index.
+  Strapi 5 data in Astro pages, StrapiBlocks, BlockRenderer, Tailwind 4, shadcn. Covers onboarding
+  (copy upstream skills), slug/CMS routes, Astro i18n, package upgrades, optional Vitest. Types in
+  src/types/strapi/ with a barrel index.
 ---
 
 # Astro × Strapi starter (VirtusLab template)
@@ -19,6 +19,18 @@ description: >-
 - **Loader (queries, collections, locales):** stub with upstream links in [../astro-strapi-loader/SKILL.md](../astro-strapi-loader/SKILL.md) — canonical: [raw SKILL on GitHub](https://raw.githubusercontent.com/VirtusLab-Open-Source/astro-strapi-loader/main/.ai/astro-strapi-loader/SKILL.md)
 - **StrapiBlocks (rich text):** stub with upstream links in [../astro-strapi-blocks/SKILL.md](../astro-strapi-blocks/SKILL.md) — canonical: [raw SKILL on GitHub](https://raw.githubusercontent.com/VirtusLab-Open-Source/astro-strapi-blocks/main/.ai/astro-strapi-blocks/SKILL.md)
 - **Project overview:** [../AGENTS.md](../AGENTS.md)
+
+## Onboarding: upstream `SKILL` for loader and blocks (do this when you start)
+
+Stubs in [../astro-strapi-loader/SKILL.md](../astro-strapi-loader/SKILL.md) and [../astro-strapi-blocks/SKILL.md](../astro-strapi-blocks/SKILL.md) only **link** to GitHub. Tools that do **not** follow URLs will miss most loader/blocks behavior.
+
+**Recommended when you (or a teammate) begin work in this repo:**
+
+1. **Copy or download** the canonical upstream files into a place your tool reads — e.g. a local `SKILL` folder, `.cursor/skills/`, or a short-lived **`.ai/_upstream/`** (add to `.gitignore` if you do not want copies committed). Use the **raw** URLs from the stubs; **pin the branch or tag to the version in `package.json`** (e.g. replace `main` with the git tag that matches `@sensinum/astro-strapi-loader` / `astro-strapi-blocks`).
+2. **Or** use your editor’s **“fetch from URL / import skill”** for those raw links before deep work on `populate`, locales, or `StrapiBlocks` `theme` overrides.
+3. **Minimum:** at least **open the raw** loader and blocks `SKILL.md` once per upgrade cycle and skim for breaking changes.
+
+The full starter context lives in **this** file; loader and blocks are **not** vendored here on purpose, so a local or fetched copy is how you get parity with a model that only sees files.
 
 ## Configuration flow
 
@@ -62,6 +74,48 @@ Use **StrapiBlocks** for the Strapi 5 **Blocks** rich-text field. Use **custom A
 2. Add types under `src/types/strapi/` (and the barrel `index.ts`); keep field names aligned with the API and with Content Builder / loader introspection.
 3. Add pages under `src/pages/` that call `getCollection` with the new key.
 
+## CMS-driven routes: `slug`, `documentId`, or other unique key
+
+For **collection** types (e.g. “pages” in Strapi) you usually expose a **string** in the URL — often `slug` — or another unique field. The loader materializes Strapi as `astro:content` entries; your route must map **one field per segment** to `params` that match the file name (e.g. `src/pages/[slug].astro` → `params.slug`).
+
+**Pattern (SSG, conceptual):** In the dynamic page, use `getStaticPaths` and `getCollection('yourCollection')` (see Astro [ Routing](https://docs.astro.build/en/guides/routing/) and [Content collections: generating pages](https://docs.astro.build/en/guides/content-collections/#generating-pages-from-content-collections)):
+
+```ts
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const items = await getCollection("pages"); // name from content.config
+  return items.map((entry) => ({
+    params: { slug: entry.data.slug },
+    props: { entry },
+  }));
+}
+```
+
+Replace `pages` / `slug` with your collection name and the **field you agree is the path key**.
+
+**Agent workflow (do not guess the URL key):**
+
+1. Read `src/types/strapi/` (or generated entry types) for the collection and list **candidates** for a route segment: e.g. `slug`, `uid`, `documentId`, or locale-prefixed shapes.
+2. **Ask the user** which field to use for URL generation, whether it is **unique** per site or per-locale, and if **fallbacks** are allowed (e.g. missing `slug` → skip path or 404).
+3. Once chosen, use that field in `getStaticPaths` and in links inside components. `documentId` is stable but usually worse for public URLs than a dedicated `slug`.
+
+## Internationalization (i18n)
+
+- **Astro (canonical):** Configure routing, `[lang]` segments, and `i18n` in `astro.config` per the official guide: **[Internationalization (i18n) routing](https://docs.astro.build/en/guides/internationalization/)** (routing strategies, `getRelativeLocaleUrl`, `astro:i18n`, etc.). This repo does not ship a second, competing convention — add folders and config as the docs show.
+- **Strapi + loader:** Use **locales** in your Strapi REST `filters` / `locale` and in loader/collection options (see **upstream** loader `SKILL`). The **Astro** locale in the path (e.g. `en/`, `pl/`) and the **Strapi** `locale` parameter for fetches must **line up** in your page logic and `content.config` queries.
+- **Single source of truth:** URL structure = Astro i18n; per-locale data = Strapi queries.
+
+## Bumping `@sensinum/astro-strapi-loader` or `@sensinum/astro-strapi-blocks`
+
+1. After changing versions in `package.json` and `npm install` / `yarn`, **re-fetch** the matching upstream **raw** `SKILL.md` (and related `AGENTS` / reference) using a **git tag** or **commit** that matches the release you installed, not only `main`.
+2. If API or docs moved, **update the stub link targets** in [../astro-strapi-loader/SKILL.md](../astro-strapi-loader/SKILL.md) and [../astro-strapi-blocks/SKILL.md](../astro-strapi-blocks/SKILL.md) (and any Cursor rule stubs) so the next run points at the right revision.
+3. Run `npm run build` and fix any schema or import breaks.
+
+## Tests (optional, project policy)
+
+- The starter **does not** include a test runner. For **non-trivial** helpers (URL builders, locale mapping, block transformers), consider **Vitest** (Vite-native) and add it explicitly — the agent may **suggest** unit tests for those **high-value** code paths. E2E and coverage level remain **up to the team**.
+
 ## UI (Tailwind + shadcn)
 
 - Global design tokens and Tailwind: `src/styles/global.css`.
@@ -71,3 +125,4 @@ Use **StrapiBlocks** for the Strapi 5 **Blocks** rich-text field. Use **custom A
 ## Verification
 
 - `npm run build` runs `astro check` and a production build—use after changing schemas, `content.config.ts`, or block components.
+- After **loader/blocks** upgrades, re-run the same; add or run **Vitest** (if you adopt it) after changing test-covered helpers.

@@ -41,7 +41,8 @@ The `.ai/` directory holds **portable, tool-agnostic** context. A thin [`AGENTS.
 ## Using skills in your editor
 
 - **Agent Skills (SKILL.md):** [`.ai/astro-strapi-starter/`](./astro-strapi-starter/SKILL.md) is the only **full** starter-specific guide here. For loader and blocks, follow the **raw** URLs in the stub files or add your tool’s “fetch from URL” if supported.
-- **`.cursor/skills/`:** You can symlink or copy **`astro-strapi-starter/`** only. For `astro-strapi-loader` / `astro-strapi-blocks`, either paste the **raw** upstream `SKILL.md` there when a tool needs a local file, or use upstream links—do not maintain a second long-term copy in this repository.
+- **Onboarding (recommended):** When you **start** work in this project, **copy or fetch** the upstream **raw** `SKILL.md` for **loader** and **blocks** (pin the git ref to the **same version** as in `package.json`) into a place your tool reads, or at least open those URLs. See the starter skill section **“Onboarding: upstream SKILL for loader and blocks”** — relying only on the short stubs in-repo is enough for a pointer, not for day-to-day loader/blocks work.
+- **`.cursor/skills/`:** You can symlink or copy **`astro-strapi-starter/`** only. For `astro-strapi-loader` / `astro-strapi-blocks`, either paste the **raw** upstream `SKILL.md` there when a tool needs a local file, or use upstream links—**do not** commit long-lived duplicate prose in this repository unless you intend to track a vendor snapshot (prefer gitignored local copies for personal use).
 - **Cursor:** Project rules live in [`.cursor/rules/`](../.cursor/rules/). A root [`AGENTS.md`](../AGENTS.md) points to this file for discoverability.
 
 ## Security

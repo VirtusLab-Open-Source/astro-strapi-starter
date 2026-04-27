@@ -6,7 +6,7 @@ alwaysApply: false
 
 # Astro Strapi starter
 
-- **Stack:** Astro 6, Strapi 5, `@sensinum/astro-strapi-loader`, `@sensinum/astro-strapi-blocks` (read [`.ai/AGENTS.md`](../../.ai/AGENTS.md) and [`.ai/astro-strapi-starter/SKILL.md`](../../.ai/astro-strapi-starter/SKILL.md)).
+- **Stack:** Astro 6, Strapi 5, `@sensinum/astro-strapi-loader`, `@sensinum/astro-strapi-blocks` (read [`.ai/AGENTS.md`](../../.ai/AGENTS.md) and [`.ai/astro-strapi-starter/SKILL.md`](../../.ai/astro-strapi-starter/SKILL.md)). **Onboarding:** copy or fetch upstream raw `SKILL` for loader/blocks (pin to `package.json` versions) per the starter skill — stubs are not a substitute for full upstream docs.
 
 - **Content:** `src/content.config.ts` exports `collections` from `generateCollections`. Handle Strapi unavailability in `try/catch` so static builds or local dev can still run.
 
