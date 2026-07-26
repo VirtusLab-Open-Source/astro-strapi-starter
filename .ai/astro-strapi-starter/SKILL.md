@@ -11,7 +11,7 @@ description: >-
 
 ## Scope
 
-- **Stack:** Astro 6+, Strapi 5, `@sensinum/astro-strapi-loader`, `@sensinum/astro-strapi-blocks`, Tailwind CSS 4, shadcn-style UI in `src/components/ui/`.
+- **Stack:** Astro 7+, Strapi 5, `@sensinum/astro-strapi-loader`, `@sensinum/astro-strapi-blocks`, Tailwind CSS 4, shadcn-style UI in `src/components/ui/`.
 - **Goal:** Add or change CMS-driven content, query shapes, and UI while keeping one source of truth for Strapi REST objects and a clear split between **dynamic zone components** and **rich-text Blocks**.
 
 ## Read next

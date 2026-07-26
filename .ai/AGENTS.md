@@ -1,6 +1,6 @@
 # Agent instructions: Astro × Strapi starter
 
-This project is a production-oriented **Astro 6** frontend with **Strapi 5** content loaded via [**@sensinum/astro-strapi-loader**](https://github.com/VirtusLab-Open-Source/astro-strapi-loader) and **Strapi 5 rich-text Blocks** rendered with [**@sensinum/astro-strapi-blocks**](https://github.com/VirtusLab-Open-Source/astro-strapi-blocks). Styling uses **Tailwind CSS 4** (Vite plugin) and **shadcn/ui**-style components.
+This project is a production-oriented **Astro 7** frontend with **Strapi 5** content loaded via [**@sensinum/astro-strapi-loader**](https://github.com/VirtusLab-Open-Source/astro-strapi-loader) and **Strapi 5 rich-text Blocks** rendered with [**@sensinum/astro-strapi-blocks**](https://github.com/VirtusLab-Open-Source/astro-strapi-blocks). Styling uses **Tailwind CSS 4** (Vite plugin) and **shadcn/ui**-style components.
 
 The `.ai/` directory holds **portable, tool-agnostic** context. A thin [`AGENTS.md`](../AGENTS.md) at the repository root points here so tools that only scan the project root can find these instructions.
 

@@ -3,7 +3,7 @@ name: astro-strapi-loader
 description: >-
   Use @sensinum/astro-strapi-loader with Astro Content Layer: Strapi REST query objects,
   generateCollections, populate, qs, locales, dynamic zones. Full instructions are maintained
-  upstream; open the links below. Strapi 5, Astro 6+.
+  upstream; open the links below. Strapi 5, Astro 7+.
 ---
 
 # @sensinum/astro-strapi-loader (reference)
