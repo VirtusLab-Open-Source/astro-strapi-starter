@@ -1,7 +1,7 @@
 {
   "name": "astro-strapi-starter",
   "type": "module",
-  "version": "3.1.0",
+  "version": "7.0.0",
   "description": "AI-native first: Astro 7, Strapi, Tailwind 4, shadcn/ui — ships with AGENTS.md, .ai/ skills, and Cursor rules. Dark mode, Inter, live UI showcase.",
   "private": true,
   "scripts": {
