@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 8
+  version: 10
   cacheKey: 10
 
 "@antfu/ni@npm:^25.0.0":
@@ -4748,9 +4748,9 @@ __metadata:
   linkType: hard
 
 "devalue@npm:^5.8.1":
-  version: 5.8.2
-  resolution: "devalue@npm:5.8.2"
-  checksum: 10/fe9c5c67a5780b3deb6dcd6bc291c455e7e43928e0784ccef9f81b3706796a994bdb4477c1677dbe3825959e4a0a1a6167bd50a883d7675ca67983b9fd342c5c
+  version: 5.9.2
+  resolution: "devalue@npm:5.9.2"
+  checksum: 10/c47d409fb8042d197a94cf0c09286a058d35e0381df545eb329e9971701562c264a633c40cfd43ec218a3153c69c675c0c60eb29891c3efe3fe453fd8a0f945c
   languageName: node
   linkType: hard
 
